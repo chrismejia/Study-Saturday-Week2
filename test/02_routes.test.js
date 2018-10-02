@@ -82,7 +82,7 @@ describe("Routes", () => {
     });
 
     describe("POST /students", () => {
-      xit("creates a new Student instance", () => {
+      it("creates a new Student instance", () => {
         return agent
           .post("/students")
           .send({
@@ -99,7 +99,7 @@ describe("Routes", () => {
     });
 
     describe("PUT /students/:id", () => {
-      xit("updates an instance of a student", () => {
+      it("updates an instance of a student", () => {
         return agent
           .put(`/students/${pepper.id}`)
           .send({ firstName: "Salty" })
