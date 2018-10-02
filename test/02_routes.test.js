@@ -112,7 +112,7 @@ describe("Routes", () => {
     });
 
     describe("DELETE /students/:id", () => {
-      xit("deletes an instance of a student", () => {
+      it("deletes an instance of a student", () => {
         return agent
           .delete(`/students/${charlie.id}`)
           .expect(204)

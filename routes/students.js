@@ -49,18 +49,26 @@ router.post("/", async function(req, res, next) {
 router.put("/:id", async function(req, res, next) {
   try {
     // pass in req.body DIRECTLY because it's ALREADY an object
-    console.log(req.body);
-    const updatedStudent = await Student.update(
-      {
-        firstName: req.body.firstName
-      },
-      {
-        where: {
-          id: req.params.id
-        }
+    let updatedStudentInfo = await Student.update(req.body, {
+      where: { id: req.params.id },
+      returning: true,
+      plain: true
+    });
+    res.send(updatedStudentInfo[1]);
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.delete("/:id", async function(req, res, next) {
+  try {
+    // pass in req.body DIRECTLY because it's ALREADY an object
+    let updatedStudentInfo = await Student.destroy({
+      where: {
+        id: req.params.id
       }
-    );
-    res.status(200).send(updatedStudent);
+    });
+    res.sendStatus(204);
   } catch (error) {
     next(error);
   }
