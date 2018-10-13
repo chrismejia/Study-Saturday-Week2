@@ -425,8 +425,8 @@ Not as straightforward as the last two. This one has a couple of steps we have t
 1. Find the `student` in the DB
 2. Create the `test` with the `req.body`
 3. Assign the `test` to the `student`
-   3a. remember the association from **#10?** ➔ `Test.belongsTo(Student)`
-   3b. `.setStudent()` finally gets to prove its usefulness
+3a. remember the association from **#10?** ➔ `Test.belongsTo(Student)`
+3b. `.setStudent()` finally gets to prove its usefulness
 4. Finally, send back a `201` with the created and assigned `studentTest`
 
 ```js
